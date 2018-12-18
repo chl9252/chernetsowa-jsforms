@@ -5,8 +5,8 @@ $(document).ready(function() {
 		// Переменные модуля
 
 		var _form = $('#comment-add-form'),
-			_commentText = _form.children('.textarea'),
-			_notify = _form.children('.notify');
+			_commentText = _form.find('.textarea'),
+			_notify = _form.find('.notify');
 
 		// Метод инициализации (запуска) модуля
 
@@ -30,8 +30,13 @@ $(document).ready(function() {
 			event.preventDefault();
 			// proverka
 
-			if(_commentText.val().trim().length == 0) {
+			if(_commentText.val().trim().length === 0) {
 				_notify.fadeIn(700);
+
+				_commentText.on('focus', function(){
+					_notify.fadeOut(700);
+					_form.trigger("reset");
+				})
 
 			} else {
 				_notify.fadeOut(700);
