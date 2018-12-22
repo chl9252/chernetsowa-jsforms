@@ -50,6 +50,20 @@ $(document).ready(function() {
 				})
 			};
 
+
+			//password empty
+
+			if(_inputPassword.val().trim().length === 0) {
+				valid = false;
+				_notifyPassword.fadeIn(700);
+
+				_inputPassword.on('focus', function(){
+					_notifyPassword.fadeOut(700);
+
+				})
+			};
+
+
 			// email invalid
 
 			if (valid) {
@@ -75,17 +89,6 @@ $(document).ready(function() {
 
 			};
 
-			//password empty
-
-			if(_inputPassword.val().trim().length === 0) {
-				valid = false;
-				_notifyPassword.fadeIn(700);
-
-				_inputPassword.on('focus', function(){
-					_notifyPassword.fadeOut(700);
-
-				})
-			};
 
 			
 
